@@ -7,17 +7,18 @@
  */
 
 namespace app\components;
+
 use yii\base\Widget;
 
-class MenuWidget extends Widget{
+class MenuWidget extends Widget {
 
     public $tpl;
 
     public function init() {
         parent::init();
-            if ($this->tpl === null) {
-                $this->tpl = 'menu';
-            }
+        if ($this->tpl === null) {
+            $this->tpl = 'menu';
+        }
         $this->tpl .= '.php';
     }
 
