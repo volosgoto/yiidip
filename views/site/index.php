@@ -80,7 +80,7 @@ $this->title = 'My Yii Application';
                     <h2>Category</h2>
 
 
-                    <?php echo MenuWidget::widget(); ?>
+                    <?php echo MenuWidget::widget(['tpl' => 'select']); ?>
 
 
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
