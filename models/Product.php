@@ -1,23 +1,23 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: andrey
- * Date: 06.02.18
- * Time: 9:47
+ * User: Andrey
+ * Date: 07.05.2016
+ * Time: 10:28
  */
 
 namespace app\models;
-
 use yii\db\ActiveRecord;
 
-class Product extends ActiveRecord {
 
-    public static function tableName() {
+class Product extends ActiveRecord{
+
+    public static function tableName(){
         return 'product';
     }
 
-
-    public function getCategory() {
+    public function getCategory(){
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
-}
+
+} 
