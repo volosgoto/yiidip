@@ -14,7 +14,14 @@ use Yii;
 class CartController extends AppController {
     public function actionAdd(){
         $id = Yii::$app->request->get('id');
-        return $id;
+        $product = Product::findOne($id);
 
+        if(empty($product)) return false;
+
+        $session =Yii::$app->session;
+        $session->open();
+
+        $cart = new Cart();
+        $cart->addToCart($product);
     }
 }
