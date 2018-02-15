@@ -6,10 +6,12 @@
   "directories": {
     "test": "tests"
   },
-  "dependencies": {
-    "eslint": "^4.17.0"
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
