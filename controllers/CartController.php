@@ -23,5 +23,7 @@ class CartController extends AppController {
 
         $cart = new Cart();
         $cart->addToCart($product);
+        $this->layout = true;
+        return $this->render('cart-modal', compact('session'));
     }
 }

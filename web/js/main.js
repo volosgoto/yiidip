@@ -25,7 +25,6 @@ $('.add-to-cart').on('click', function (e) {
     });
 });
 
-
 var RGBChange = function() {
 	  $("#RGB").css("background", "rgb("+r.getValue()+","+g.getValue()+","+b.getValue()+")");
 };	
