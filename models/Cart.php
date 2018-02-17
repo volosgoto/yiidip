@@ -30,7 +30,6 @@ class Cart extends ActiveRecord {
 
     }
 
-
     public function recalc($id){
         if(!isset($_SESSION['cart'][$id])) return false;
         $qtyMinus = $_SESSION['cart'][$id]['qty'];
@@ -41,5 +40,3 @@ class Cart extends ActiveRecord {
     }
 
 }
-
-$a[] = '1';
