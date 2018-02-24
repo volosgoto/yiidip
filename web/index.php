@@ -11,3 +11,4 @@ $config = require(__DIR__ . '/../config/web.php');
 require_once __DIR__ . '/../functions.php';
 
 (new yii\web\Application($config))->run();
+//debug(new yii\web\Application($config))->run();
