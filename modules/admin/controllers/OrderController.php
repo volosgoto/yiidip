@@ -6,6 +6,7 @@ use Yii;
 use app\modules\admin\models\Order;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
+use app\modules\admin\models\OrderItems;
 use yii\filters\VerbFilter;
 
 /**
