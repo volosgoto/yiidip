@@ -6,7 +6,6 @@ use Yii;
 use app\modules\admin\models\Order;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
-use app\modules\admin\models\OrderItems;
 use yii\filters\VerbFilter;
 
 /**
@@ -17,6 +16,17 @@ class OrderController extends AppAdminController
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
+    }
 
     /**
      * Lists all Order models.
@@ -43,9 +53,8 @@ class OrderController extends AppAdminController
 
     /**
      * Displays a single Order model.
-     * @param integer $id
+     * @param string $id
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
@@ -65,19 +74,18 @@ class OrderController extends AppAdminController
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
      * Updates an existing Order model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
@@ -85,19 +93,18 @@ class OrderController extends AppAdminController
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
      * Deletes an existing Order model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
@@ -109,7 +116,7 @@ class OrderController extends AppAdminController
     /**
      * Finds the Order model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $id
      * @return Order the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -117,8 +124,8 @@ class OrderController extends AppAdminController
     {
         if (($model = Order::findOne($id)) !== null) {
             return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
         }
-
-        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

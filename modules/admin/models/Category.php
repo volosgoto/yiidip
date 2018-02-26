@@ -7,8 +7,8 @@ use Yii;
 /**
  * This is the model class for table "category".
  *
- * @property int $id
- * @property int $parent_id
+ * @property string $id
+ * @property string $parent_id
  * @property string $name
  * @property string $keywords
  * @property string $description
@@ -22,6 +22,11 @@ class Category extends \yii\db\ActiveRecord
     {
         return 'category';
     }
+
+    public function getCategory(){
+        return $this->hasOne(Category::className(), ['id' => 'parent_id']);
+    }
+
 
     /**
      * @inheritdoc
@@ -41,11 +46,11 @@ class Category extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'parent_id' => 'Parent ID',
-            'name' => 'Name',
-            'keywords' => 'Keywords',
-            'description' => 'Description',
+            'id' => '№ категории',
+            'parent_id' => 'Родительская категория',
+            'name' => 'Название',
+            'keywords' => 'Ключевые слова',
+            'description' => 'Мета-описание',
         ];
     }
 }

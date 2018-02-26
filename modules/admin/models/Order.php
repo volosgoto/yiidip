@@ -7,10 +7,10 @@ use Yii;
 /**
  * This is the model class for table "order".
  *
- * @property int $id
+ * @property string $id
  * @property string $created_at
  * @property string $updated_at
- * @property int $qty
+ * @property integer $qty
  * @property double $sum
  * @property string $status
  * @property string $name

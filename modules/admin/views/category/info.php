@@ -17,7 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Category', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
@@ -31,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->category ? $data->category->name : 'Самостоятельная категория';
                 }
             ],
-
             'name',
             'keywords',
             'description',
