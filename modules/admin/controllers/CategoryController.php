@@ -1,6 +1,5 @@
 <?php
 
-
 namespace app\modules\admin\controllers;
 
 use Yii;
@@ -8,7 +7,6 @@ use app\modules\admin\models\Category;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -30,30 +28,20 @@ class CategoryController extends AppAdminController
         ];
     }
 
-
-    public function actionInfo()
-    {
-
-        $query = Category::find();
-        $dataProvider = new ActiveDataProvider(['query' => $query]);
-
-        return $this->render('info', compact('dataProvider'));
-    }
-
-
     /**
      * Lists all Category models.
      * @return mixed
      */
-
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Category::find()->with('category'),
         ]);
-        return $this->render('index', compact('dataProvider'));
-    }
 
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Category model.
@@ -77,6 +65,7 @@ class CategoryController extends AppAdminController
         $model = new Category();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Категория {$model->name} добавлена");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
