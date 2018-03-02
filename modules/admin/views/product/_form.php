@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
 <div class="product-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <div class="form-group field-product-category_id has-success">
         <label class="control-label" for="product-category_id">Родительская категория</label>
@@ -45,8 +45,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
-
+    <?= $form->field($model, 'image')->fileInput() ?>
+    
     <?= $form->field($model, 'hit')->checkbox([ '0', '1', ]) ?>
 
     <?= $form->field($model, 'new')->checkbox([ '0', '1', ]) ?>
