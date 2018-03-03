@@ -24,6 +24,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+    <?php  $img = $model->getImage();
+
+    echo debug($img->filePath);
+//    die;
+    ?>
+<!--    --><?php //debug( get_class_methods($img)); die;?>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -35,7 +41,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'price',
             'keywords',
             'description',
-            'img',
+            [
+                'attribute' => 'image',
+//                'value' => "<img src='{$img->getUrl()}'>",
+                'value' => "<img src='/images/upload/store/{$img->filePath}'>",
+                'format' => 'html',
+            ],
+
+//            'img',
             'hit',
             'new',
             'sale',
@@ -43,3 +56,5 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+
+

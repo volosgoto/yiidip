@@ -21,6 +21,7 @@
         "mihaildev/yii2-ckeditor": "*",
         "mihaildev/yii2-elfinder": "*",
         "costa-rico/yii2-images": "dev-master"
+
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

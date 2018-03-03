@@ -24,7 +24,8 @@ class Product extends \yii\db\ActiveRecord {
     public $gallery;
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
             'image' => [
                 'class' => 'rico\yii2images\behaviors\ImageBehave',
@@ -49,6 +50,7 @@ class Product extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
+//            [['id'], 'integer'],
             [['category_id', 'name'], 'required'],
             [['category_id'], 'integer'],
             [['content', 'hit', 'new', 'sale'], 'string'],
@@ -80,8 +82,9 @@ class Product extends \yii\db\ActiveRecord {
 
     public function upload() {
         if ($this->validate()) {
-            $path = 'upload/store/' . $this->image->baseName . '.' . $this->image->extension;
+            $path = 'images/upload/store/' . $this->image->baseName . '.' . $this->image->extension;
             $this->image->saveAs($path);
+            $this->attachImage($path);
             return true;
         } else {
             return false;
