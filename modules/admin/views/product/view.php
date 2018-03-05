@@ -26,10 +26,19 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?php  $img = $model->getImage();
 
-    echo debug($img->filePath);
+//    $url = $img->getUrl();
+//    $url = explode(DIRECTORY_SEPARATOR, $url);
+//    unset ($url [0]);
+//    unset ($url [1]);
+//    $url = array_values($url);
+//    array_unshift($url, 'yii2images');
+//    $imagePath = implode(DIRECTORY_SEPARATOR, $url);
+
+//    debug($img->getUrl());
+//    debug($imagePath);
+
 //    die;
     ?>
-<!--    --><?php //debug( get_class_methods($img)); die;?>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -47,6 +56,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => "<img src='/images/upload/store/{$img->filePath}'>",
                 'format' => 'html',
             ],
+//            [
+//                'attribute' => 'image',
+//                'value' => "<img src='/$imagePath'>",
+//                'format' => 'html',
+//            ],
 
 //            'img',
             'hit',
