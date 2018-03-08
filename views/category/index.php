@@ -82,13 +82,15 @@ use yii\helpers\Html;
                     </ul>
                     <h2>Все бренды</h2>
                     <ul class="catalog category-products">
+                        <li>
                         <?php if (!empty($brands)): ?>
                             <?php foreach($brands as $brand): ?>
-                                <p>
+                            <p>
                                     <a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $brand->id]) ?>"><?= $brand->name?></a>
-                                </p>
-                            <?php endforeach;?>
+                            </p>
+                                <?php endforeach;?>
                         <?php endif; ?>
+                        </li>
                     </ul>
                 </div>
             </div>
