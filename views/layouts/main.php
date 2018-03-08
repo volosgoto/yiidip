@@ -44,19 +44,19 @@ ltAppAsset::register($this);
                 <div class="col-sm-6">
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
-                            <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i> +38(000)000-00-00</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> seller@domain.com</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+<!--                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
+<!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
                         </ul>
                     </div>
                 </div>
@@ -106,10 +106,10 @@ ltAppAsset::register($this);
                                 </li>
                             <?php endif; ?>
 
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="<?php echo \yii\helpers\Url::to('/admin' ) ?>"><i class="fa fa-lock"></i> Login</a></li>
+<!--                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>-->
+<!--                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>-->
+                            <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                            <li><a href="<?php echo \yii\helpers\Url::to('/admin' ) ?>"><i class="fa fa-lock"></i> Войти</a></li>
                         </ul>
                     </div>
                 </div>
@@ -131,24 +131,23 @@ ltAppAsset::register($this);
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                            <li><a href="href="<?=\yii\helpers\Url::to(['category/index'])?>" class="active">На главную</a></li>
+                            <li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="shop.html">Products</a></li>
-                                    <li><a href="product-details.html">Product Details</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="login.html">Login</a></li>
+
+                                    <li><a href="<?=\yii\helpers\Url::to(['category/index']) ?>">Список категорий</a></li>
+
+                                    <li><a href="#" onclick="return getCart()"><i class=""></i> Корзина</a></li>
+                                    <li><a href="<?=\yii\helpers\Url::to(['/admin']) ?>">Войти</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a href="#">Блог<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Blog List</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a href="to blog">Перейти на блог</a></li>
                                 </ul>
                             </li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="contact-us.html">Контакты</a></li>
                         </ul>
                     </div>
                 </div>
