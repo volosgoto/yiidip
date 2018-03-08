@@ -40,9 +40,12 @@ class MenuWidget extends Widget{
         // set cache
         if($this->tpl == 'menu.php'){
             Yii::$app->cache->set('menu', $this->menuHtml, 60);
+            return $this->menuHtml;
         }
-        return $this->menuHtml;
+
     }
+
+
 
     protected function getTree(){
         $tree = [];

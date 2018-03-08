@@ -71,29 +71,6 @@ ltAppAsset::register($this);
                     <div class="logo pull-left">
                         <a href="<?php echo \yii\helpers\Url::home()?>"><?php echo Html::img('@web/images/home/logo.png', ['alt' => 'E-SHOPPER'])?></a>
                     </div>
-                    <div class="btn-group pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                USA
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canada</a></li>
-                                <li><a href="#">UK</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                DOLLAR
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canadian Dollar</a></li>
-                                <li><a href="#">Pound</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
@@ -131,20 +108,18 @@ ltAppAsset::register($this);
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="href="<?=\yii\helpers\Url::to(['category/index'])?>" class="active">На главную</a></li>
+                            <li><a href="<?= \yii\helpers\Url::home()?>" class="active">На главную</a></li>
                             <li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Products</a></li>
 
                                     <li><a href="<?=\yii\helpers\Url::to(['category/index']) ?>">Список категорий</a></li>
-
                                     <li><a href="#" onclick="return getCart()"><i class=""></i> Корзина</a></li>
                                     <li><a href="<?=\yii\helpers\Url::to(['/admin']) ?>">Войти</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">Блог<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="to blog">Перейти на блог</a></li>
+                                    <li><a href="to blog">Перейти в блог</a></li>
                                 </ul>
                             </li>
                             <li><a href="contact-us.html">Контакты</a></li>
@@ -169,79 +144,8 @@ ltAppAsset::register($this);
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-sm-2">
-                    <div class="companyinfo">
-                        <h2><span>e</span>-shopper</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/images/home/iframe1.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/images/home/iframe2.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/images/home/iframe3.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/images/home/iframe4.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="address">
-                        <img src="/images/home/map.png" alt="" />
-                        <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -250,7 +154,7 @@ ltAppAsset::register($this);
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
-                    <div class="single-widget">
+                    <div class="single-widget text-center">
                         <h2>Service</h2>
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#">Online Help</a></li>
@@ -259,52 +163,6 @@ ltAppAsset::register($this);
                             <li><a href="#">Change Location</a></li>
                             <li><a href="#">FAQ’s</a></li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-widget">
-                        <h2>Quock Shop</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">T-Shirt</a></li>
-                            <li><a href="#">Mens</a></li>
-                            <li><a href="#">Womens</a></li>
-                            <li><a href="#">Gift Cards</a></li>
-                            <li><a href="#">Shoes</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-widget">
-                        <h2>Policies</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privecy Policy</a></li>
-                            <li><a href="#">Refund Policy</a></li>
-                            <li><a href="#">Billing System</a></li>
-                            <li><a href="#">Ticket System</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-widget">
-                        <h2>About Shopper</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Company Information</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Store Location</a></li>
-                            <li><a href="#">Affillate Program</a></li>
-                            <li><a href="#">Copyright</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-sm-offset-1">
-                    <div class="single-widget">
-                        <h2>About Shopper</h2>
-                        <form action="#" class="searchform">
-                            <input type="text" placeholder="Your email address" />
-                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                            <p>Get the most recent updates from <br />our site and be updated your self...</p>
-                        </form>
                     </div>
                 </div>
 
