@@ -4,6 +4,8 @@
 use yii\helpers\Html;
 //$this->title = 'My Yii Application';
 ?>
+
+
 <!--<section id="slider"><!--slider-->-->
 <!--    <div class="container">-->
 <!--        <div class="row">-->
@@ -74,17 +76,28 @@ use yii\helpers\Html;
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Категории и бренды</h2>
+                    <h2>Категории</h2>
                     <ul class="catalog category-products">
                         <?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
                     </ul>
-
-
+                    <h2>Все бренды</h2>
+                    <ul class="catalog category-products">
+                        <?php if (!empty($brands)): ?>
+                            <?php foreach($brands as $brand): ?>
+                                <p>
+                                    <a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $brand->id]) ?>"><?= $brand->name?></a>
+                                </p>
+                            <?php endforeach;?>
+                        <?php endif; ?>
+                    </ul>
                 </div>
             </div>
 
+
+
             <div class="col-sm-9 padding-right">
                 <?php if( !empty($hits) ): ?>
+                <?php  ?>
                     <div class="features_items"><!--features_items-->
                         <h2 class="title text-center">Рекомендуемые товары</h2>
                         <?php foreach($hits as $hit): ?>
@@ -113,6 +126,13 @@ use yii\helpers\Html;
                         <?php endforeach;?>
                     </div><!--features_items-->
                 <?php endif; ?>
+
+
+
+
+
+
+
 
             </div>
         </div>

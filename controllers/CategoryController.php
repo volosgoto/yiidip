@@ -10,8 +10,9 @@ class CategoryController extends AppController{
 
     public function actionIndex(){
         $hits = Product::find()->where(['hit' => '1'])->limit(6)->all();
+        $brands = Category::find()->select('name, id')->where('parent_id > :param', ['param' => 0])->all();
         $this->setMeta('E-Shopper');
-        return $this->render('index', compact('hits'));
+        return $this->render('index', compact('hits', 'brands'));
     }
 
     public function actionView($id){
