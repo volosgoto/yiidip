@@ -67,7 +67,7 @@ use yii\helpers\Html;
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-<!--</section><!--/slider-->-->
+<!--</section><!--/slider-->
 
 <section>
     <div class="container">
