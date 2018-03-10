@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\SignupForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -66,6 +67,39 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+
+    public function actionSignup () {
+
+        $model = new SignupForm();
+
+        if (Yii::$app->user->isGuest) {
+
+
+//            debug($model->signup()); die;
+            if (Yii::$app->request->post() ) {
+
+                $model->load(Yii::$app->request->post());
+                $model->signup();
+
+
+
+                    Yii::$app->session->setFlash('success', "Пользователь добавлен");
+                    print_r($model->errors);
+                    return $this->render('signup', compact('model'));
+                }
+
+                if (!$model->signup()){
+                    Yii::$app->session->setFlash('error', "Пользователь не зарегистрирован");
+                    return $this->render('signup', compact('model'));
+                }
+
+
+        }
+    }
+
+
+
 
     public function actionLogout()
     {

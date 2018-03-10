@@ -1,16 +1,11 @@
 <?php
-
 namespace app\models;
-
 use yii\db\ActiveRecord;
-
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
-
     public static function tableName() {
         return 'user';
     }
-
     /**
      * @inheritdoc
      */
@@ -18,7 +13,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return static::findOne($id);
     }
-
     /**
      * @inheritdoc
      */
@@ -26,7 +20,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
 //        return static::findOne(['access_token' => $token]);
     }
-
     /**
      * Finds user by username
      *
@@ -37,7 +30,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return static::findOne(['username' => $username]);
     }
-
     /**
      * @inheritdoc
      */
@@ -45,7 +37,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->id;
     }
-
     /**
      * @inheritdoc
      */
@@ -53,7 +44,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->auth_key;
     }
-
     /**
      * @inheritdoc
      */
@@ -61,7 +51,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->auth_key === $authKey;
     }
-
     /**
      * Validates password
      *
@@ -72,10 +61,12 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
 //        return $this->password === $password;
         return \Yii::$app->security->validatePassword($password, $this->password);
-
     }
-
     public function generateAuthKey(){
         $this->auth_key = \Yii::$app->security->generateRandomString();
+    }
+
+    public function setPassword($password){
+        return $this->password = $password;
     }
 }

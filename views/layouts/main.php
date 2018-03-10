@@ -87,7 +87,40 @@ ltAppAsset::register($this);
 <!--                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>-->
                             <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
                             <li><a href="<?php echo \yii\helpers\Url::to('/admin' ) ?>"><i class="fa fa-lock"></i> Войти</a></li>
+                            <li><a href="<?php
+
+
+
+                                ?>"><i class="fa fa-lock"></i> Регистрация</a></li>
                         </ul>
+
+                        <?php
+                        NavBar::begin([
+                            'brandUrl' => Yii::$app->homeUrl,
+                            'options' => [
+                                'class' => 'navbar-inverse navbar-fixed-top',
+                            ],
+                        ]);
+
+                        echo Nav::widget([
+                            'items' => [
+                                Yii::$app->user->isGuest ? (
+                                ['label' => 'Login', 'url' => ['/site/signup']]
+                                ) : (
+                                    '<li>'
+                                    . Html::beginForm(['/site/logout'], 'post')
+                                    . Html::submitButton(
+                                        'Logout (' . Yii::$app->user->identity->username . ')',
+                                        ['class' => 'btn btn-link logout']
+                                    )
+                                    . Html::endForm()
+                                    . '</li>'
+                                )
+                            ],
+                        ]);
+
+                        NavBar::end();
+                        ?>
                     </div>
                 </div>
             </div>
@@ -112,9 +145,11 @@ ltAppAsset::register($this);
                             <li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
 
-                                    <li><a href="<?=\yii\helpers\Url::to(['category/index']) ?>">Список категорий</a></li>
+                                    <li><a href="<?=\yii\helpers\Url::to(['category/about']) ?>">О магазине</a></li>
+                                    <li><a href="<?=\yii\helpers\Url::to(['category/policy']) ?>">Оплата и доставка</a></li>
                                     <li><a href="#" onclick="return getCart()"><i class=""></i> Корзина</a></li>
                                     <li><a href="<?=\yii\helpers\Url::to(['/admin']) ?>">Войти</a></li>
+
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">Блог<i class="fa fa-angle-down"></i></a>
