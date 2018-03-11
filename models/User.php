@@ -1,5 +1,6 @@
 <?php
 namespace app\models;
+use Yii;
 use yii\db\ActiveRecord;
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
@@ -67,6 +68,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     }
 
     public function setPassword($password){
-        return $this->password = $password;
+        $passwordToHash = Yii::$app->security->generatePasswordHash($password);
+        return $this->password = $passwordToHash;
     }
 }

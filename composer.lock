@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9127af94a9956f9fa67db83fcd5f8154",
+    "content-hash": "45ab74b8f21d9b180d1674edc0467384",
     "packages": [
         {
             "name": "abeautifulsite/simpleimage",
@@ -1407,7 +1407,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=7.0.0"
     },
     "platform-dev": []
 }

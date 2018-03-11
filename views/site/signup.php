@@ -18,13 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     <?php  endif;?>
 
-
-    <?php if ( !empty(Yii::$app->session->hasFlash('error'))):?>
-        <div class="alert alert-warning">
-            <h1><?php  echo Yii::$app->session->getFlash('error');?> </h1>
-        </div>
-    <?php  endif;?>
-
+    <?php debug(Yii::$app->request->post()); ?>
 
     <div class="row">
         <div class="col-lg-5">
@@ -35,6 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'password')->passwordInput() ?>
             <div class="form-group">
                 <?= Html::submitButton('Зарегистрироваться', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                <?= Html::submitButton('Вернуться', ['class' => 'btn btn-primary', 'name' => 'go_back-button']) ?>
+                <?= Html::submitButton('На нлавную', ['class' => 'btn btn-primary', 'name' => 'go_home-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>
 
