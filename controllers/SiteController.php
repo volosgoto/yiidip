@@ -91,7 +91,7 @@ class SiteController extends Controller
                 return $this->render('signup', compact('model'));
 
                 } else {
-                unset(Yii::$app->session);
+//                unset(Yii::$app->session);
                 return $this->render('signup', compact('model'));
                 }
 
