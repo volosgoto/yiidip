@@ -16,7 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     <?php  endif;?>
 
-<!--    --><?php //debug(Yii::$app->request->post()); ?>
+<!--    --><?php //if  ( null !== Yii::$app->session->hasFlash('error')) :?>
+<!--        <div class="alert alert-success">-->
+<!--            <h1> --><?php // echo Yii::$app->session->getFlash('error');?><!-- </h1>-->
+<!--        </div>-->
+<!--    --><?php // endif;?>
+
 
     <div class="row">
         <div class="col-lg-5">

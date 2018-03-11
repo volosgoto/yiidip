@@ -73,30 +73,31 @@ class SiteController extends Controller
 
         $model = new SignupForm();
 
-
-
         if (Yii::$app->user->isGuest) {
             if (Yii::$app->request->post() ) {
                 $model->load(Yii::$app->request->post());
                 $model->signup();
 
-                if (null !== Yii::$app->request->post('go_home-button')) {
-                    return $this->goHome();
-                }
-                if (null !== Yii::$app->request->post('go_back-button')) {
-                    return $this->goBack();
-                }
+//                var_dump($model->signup()); die;
+//                $model->getUser();
+//                $model->getEmail();
 
-                Yii::$app->session->setFlash('success', "Пользователь добавлен");
-                return $this->render('signup', compact('model'));
+                    if (null !== Yii::$app->request->post('go_home-button')) {
+                        return $this->goHome();
+                    }
+                    if (null !== Yii::$app->request->post('go_back-button')) {
+                        return $this->goBack();
+                    }
+                        Yii::$app->session->setFlash('success', "Пользователь добавлен");
+                        return $this->render('signup', compact('model'));
 
                 } else {
-//                unset(Yii::$app->session);
+                Yii::$app->session->removeFlash('success');
                 return $this->render('signup', compact('model'));
                 }
-
-
         }
+        Yii::$app->session->removeFlash('success');
+        $this->refresh();
     }
 
 
