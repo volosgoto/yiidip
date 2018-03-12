@@ -14,6 +14,10 @@ $config = [
             'layout' => 'admin',
             'defaultRoute' => 'order/index',
         ],
+        'user' => [
+            'class' => 'app\modules\user\Module',
+
+        ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',
             //be sure, that permissions ok
@@ -30,6 +34,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'uvxfBK9B1S8ovnPJGbcAYyRrRCj56Qh3',
             'baseUrl' => '',
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

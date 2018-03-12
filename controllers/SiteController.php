@@ -72,15 +72,10 @@ class SiteController extends Controller
     public function actionSignup () {
 
         $model = new SignupForm();
-
         if (Yii::$app->user->isGuest) {
             if (Yii::$app->request->post() ) {
                 $model->load(Yii::$app->request->post());
                 $model->signup();
-
-//                var_dump($model->signup()); die;
-//                $model->getUser();
-//                $model->getEmail();
 
                     if (null !== Yii::$app->request->post('go_home-button')) {
                         return $this->goHome();
@@ -92,8 +87,7 @@ class SiteController extends Controller
                         return $this->render('signup', compact('model'));
 
                 } else {
-                Yii::$app->session->removeFlash('success');
-                return $this->render('signup', compact('model'));
+                    return $this->render('signup', compact('model'));
                 }
         }
         Yii::$app->session->removeFlash('success');

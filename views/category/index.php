@@ -108,7 +108,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <?= Html::img("/images/upload/store/{$mainImg->filePath}", ['alt' => $hit->name])?>
+                                            <?= Html::img("{$mainImg->getUrl()}", ['alt' => $hit->name])?>
                                             <h2>$<?= $hit->price?></h2>
                                             <p>
                                                 <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"><?= $hit->name?></a>

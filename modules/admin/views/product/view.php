@@ -53,7 +53,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'image',
 //                'value' => "<img src='{$img->getUrl()}'>",
-                'value' => "<img src='/images/upload/store/{$img->filePath}'>",
+//                'value' => "<img src='/images/upload/store/{$img->filePath}'>",
+                'value' => "<img src='{$img->getUrl()}'>",
                 'format' => 'html',
             ],
 //            [
