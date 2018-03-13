@@ -2,19 +2,38 @@
 namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
+
+
+
+
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
+
     public static function tableName() {
         return 'user';
     }
     /**
      * @inheritdoc
+     *
+     *
+     *
+     *
      */
+
+    public function rules()
+    {
+        return [
+            [['isAdmin'], 'integer'],
+//            [['name', 'email', 'password', 'photo'], 'string', 'max' => 255],
+        ];
+    }
+
     public static function findIdentity($id)
     {
         return static::findOne($id);
     }
-    /**
+
+        /**
      * @inheritdoc
      */
     public static function findIdentityByAccessToken($token, $type = null)
@@ -70,5 +89,17 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     public function setPassword($password){
         $passwordToHash = Yii::$app->security->generatePasswordHash($password);
         return $this->password = $passwordToHash;
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'name' => 'Name',
+            'email' => 'Email',
+            'password' => 'Password',
+            'isAdmin' => 'Is Admin',
+            'photo' => 'Photo',
+        ];
     }
 }

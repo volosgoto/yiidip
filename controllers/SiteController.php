@@ -3,12 +3,19 @@
 namespace app\controllers;
 
 use app\models\SignupForm;
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+
+/**
+ * This is the model class for table "user".
+ *
+ * @property int $isAdmin
+ */
 
 class SiteController extends Controller
 {
@@ -58,15 +65,36 @@ class SiteController extends Controller
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        if ($model->load(Yii::$app->request->post())) {
+            $user = User::findByUsername($model->username);
+            if ($user->isAdmin === 1) {
+                $model->login();
+                return $this->goBack();
+            }
+
         }
         return $this->render('login', [
             'model' => $model,
         ]);
     }
+
+
+//    public function actionLogin()
+//    {
+//        if (!\Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
+//
+//        $model = new LoginForm();
+//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            return $this->goBack();
+//        }
+//        return $this->render('login', [
+//            'model' => $model,
+//        ]);
+//    }
+
 
 
     public function actionSignup () {

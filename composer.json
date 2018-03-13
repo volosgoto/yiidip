@@ -20,7 +20,9 @@
         "yiisoft/yii2-swiftmailer": "*",
         "mihaildev/yii2-ckeditor": "*",
         "mihaildev/yii2-elfinder": "*",
-        "costa-rico/yii2-images": "dev-master"
+        "costa-rico/yii2-images": "dev-master",
+        "johnitvn/yii2-rbac-plus": "*",
+        "developeruz/yii2-db-rbac": "*"
 
     },
     "require-dev": {

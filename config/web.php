@@ -36,13 +36,13 @@ $config = [
             'baseUrl' => '',
         ],
         'authManager' => [
-            'class' => 'yii\rbac\DbManager',
+//            'class' => 'yii\rbac\DbManager',
+        'class' => 'yii\rbac\PhpManager',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User', //set User identity class
             'identityClass' => 'app\models\User', //set User identity class
             'enableAutoLogin' => true,
 //            'loginUrl' => 'cart/view'

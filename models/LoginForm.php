@@ -68,9 +68,11 @@ class LoginForm extends Model
         if ($this->validate()) {
             if($this->rememberMe){
                 $u = $this->getUser();
+//                $u = $this->isAdmin();
                 $u->generateAuthKey();
                 $u->save();
             }
+
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
         }
         return false;
@@ -89,4 +91,10 @@ class LoginForm extends Model
 
         return $this->_user;
     }
+
+//    public function isAdmin () {
+//        if (User::find()->where(['isAdmin' => 1])->one()) {
+//           return true;
+//        }
+
 }

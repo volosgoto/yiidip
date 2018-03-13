@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
+//use app\modules\admin\rbac\Rbac as AdminRbac;
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -42,6 +43,7 @@ ltAppAsset::register($this);
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
+
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
                                 <li><a href="#"><i class="fa fa-phone"></i> +38(000)000-00-00</a></li>
@@ -79,7 +81,6 @@ ltAppAsset::register($this);
                                     <li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity['username']?> (Выход)</a></li>
                                 <?php endif;?>
                                 <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
                         </div>
                     </div>

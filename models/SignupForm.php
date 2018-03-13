@@ -43,6 +43,7 @@ class SignupForm extends Model{
             'password' => 'Пароль'
         ];
     }
+
     public function signup()
     {
 
@@ -55,6 +56,11 @@ class SignupForm extends Model{
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
+
+//        $auth = Yii::$app->authManager;
+//        $editor = $auth->getRole('editor');
+//        $auth->assign($editor, 2);
+
         return $user->save() ? $user : null;
     }
 
