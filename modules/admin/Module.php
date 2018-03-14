@@ -29,42 +29,55 @@ class Module extends \yii\base\Module
 
 
 
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-        ];
-    }
-
 //    public function behaviors()
 //    {
 //        return [
-//            'access'    =>  [
-//                'class' =>  AccessControl::className(),
-//                'denyCallback'  =>  function($rule, $action)
-//                {
-//                    throw new \yii\web\NotFoundHttpException();
-//                },
-//                'rules' =>  [
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'rules' => [
 //                    [
-//                        'allow' =>  true,
-//                        'matchCallback' =>  function($rule, $action)
-//                        {
-//                            return User::find()->where(['isAdmin' => 1])->one();
-//                        }
-//                    ]
-//                ]
-//            ]
+//                        'allow' => true,
+//                        'roles' => ['@'],
+////                        'user' => ['admin']
+//                    ],
+//                ],
+//            ],
 //        ];
 //    }
+
+    public function behaviors()
+    {
+        return [
+            'access'    =>  [
+                'class' =>  AccessControl::className(),
+//                'denyCallback'  =>  function($rule, $action)
+//                {
+//                    throw new \yii\web\NotFoundHttpException('Пользователь не найден');
+//                },
+
+                'rules' =>  [
+                    [
+                        'allow' =>  true,
+                        'roles' => ['@'],
+                        'matchCallback' =>  function($rule, $action)
+                        {
+
+                            if (!Yii::$app->user->isGuest) {
+                                $user = Yii::$app->user->getIdentity()->getIsAdmin();
+                                if ($user === 1) {
+                                    return true;
+                                } else {
+                                    throw new \yii\web\NotFoundHttpException('Пользователь не найден');
+                                }
+                            }
+
+
+                        }
+                    ]
+                ]
+            ]
+        ];
+    }
 
 //    public function getUser() {
 //        return $this->adminUser = User::findOne(['id' => 1]);

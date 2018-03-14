@@ -32,13 +32,13 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      *
      */
 
-    public function rules()
-    {
-        return [
-            [['isAdmin'], 'integer'],
+//    public function rules()
+//    {
+//        return [
+//            [['isAdmin'], 'integer'],
 //            [['name', 'email', 'password', 'photo'], 'string', 'max' => 255],
-        ];
-    }
+//        ];
+//    }
 
     public static function findIdentity($id)
     {
@@ -113,5 +113,9 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             'isAdmin' => 'Is Admin',
             'photo' => 'Photo',
         ];
+    }
+
+    public function getIsAdmin() {
+        return $this->isAdmin;
     }
 }

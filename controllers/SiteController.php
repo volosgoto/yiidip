@@ -72,7 +72,6 @@ class SiteController extends Controller
                 $model->login();
                 return $this->goBack();
             } else {
-                $model->login();
                 return $this->redirect('/user');
             }
         }

@@ -21,7 +21,7 @@ ltAppAsset::register($this);
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
-        <title>Админка | <?= Html::encode($this->title) ?></title>
+        <title>Личный кабинет | <?= Html::encode($this->title) ?> <?= Yii::$app->user->identity['username']?> </title>
         <?php $this->head() ?>
 
         <?php
@@ -80,7 +80,8 @@ ltAppAsset::register($this);
                                 <?php if(!Yii::$app->user->isGuest): ?>
                                     <li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity['username']?> (Выход)</a></li>
                                 <?php endif;?>
-                                <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -143,6 +144,21 @@ ltAppAsset::register($this);
 
 
     </footer><!--/Footer-->
+
+    <?php
+    \yii\bootstrap\Modal::begin([
+        'header' => '<h2>Корзина</h2>',
+        'id' => 'cart',
+        'size' => 'modal-lg',
+        'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+        <a href="' . \yii\helpers\Url::to(['cart/view']) . '" class="btn btn-success">Оформить заказ</a>
+        <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>'
+    ]);
+
+    \yii\bootstrap\Modal::end();
+
+    ?>
+
 
     <?php $this->endBody() ?>
     </body>
