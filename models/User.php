@@ -3,7 +3,19 @@ namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
 
-
+/**
+ * This is the model class for table "user".
+ *
+ * @property int $id
+ * @property string $username
+ * @property string $password
+ * @property string $auth_key
+ * @property string $email
+ * @property int $status
+ * @property string $created_at
+ * @property string $updated_at
+ * @property int $isAdmin
+ */
 
 
 class User extends ActiveRecord implements \yii\web\IdentityInterface

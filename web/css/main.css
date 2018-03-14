@@ -8,7 +8,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: lightgoldenrodyellow;
+  /*background-color: lightgoldenrodyellow;*/
+  background-color: #E8E8E8;
   position: relative;
   font-weight:400px;
 }
@@ -249,7 +250,7 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
   background:none;
-  color:#fdb45e;
+  color: #ff9600;
 }
 
 .search_box input {

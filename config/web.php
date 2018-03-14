@@ -16,6 +16,7 @@ $config = [
         ],
         'user' => [
             'class' => 'app\modules\user\Module',
+            'layout' => 'user',
 
         ],
         'yii2images' => [

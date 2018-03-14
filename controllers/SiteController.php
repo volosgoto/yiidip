@@ -71,8 +71,10 @@ class SiteController extends Controller
             if ($user->isAdmin === 1) {
                 $model->login();
                 return $this->goBack();
+            } else {
+                $model->login();
+                return $this->redirect('/user');
             }
-
         }
         return $this->render('login', [
             'model' => $model,
