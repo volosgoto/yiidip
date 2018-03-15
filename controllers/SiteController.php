@@ -70,8 +70,9 @@ class SiteController extends Controller
             $user = User::findByUsername($model->username);
             if ($user->isAdmin === 1) {
                 $model->login();
-                return $this->goBack();
+                return $this->redirect('/admin');
             } else {
+                $model->login();
                 return $this->redirect('/user');
             }
         }
