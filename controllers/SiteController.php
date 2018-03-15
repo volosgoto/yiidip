@@ -81,7 +81,7 @@ class SiteController extends Controller
             } else {
 //                throw new \yii\web\NotFoundHttpException('Пользователь не найден');
 
-                Yii::$app->session->setFlash('error', "Пользователь не уку найден");
+                Yii::$app->session->setFlash('error', "Пользователь не найден");
                 return $this->render('login', [
                     'model' => $model,
                 ]);

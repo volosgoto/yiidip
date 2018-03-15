@@ -15,6 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-login container">
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <?php if  ( !empty(Yii::$app->session->hasFlash('error'))) :?>
+        <div class="alert alert-danger">
+            <h1> <?php  echo Yii::$app->session->getFlash('error');?> </h1>
+        </div>
+    <?php  endif;?>
 
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
