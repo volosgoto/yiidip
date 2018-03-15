@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\NotFoundHttpException;
 
 /**
  * This is the model class for table "user".
@@ -68,13 +69,24 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post())) {
             $user = User::findByUsername($model->username);
-            if ($user->isAdmin === 1) {
-                $model->login();
-                return $this->redirect('/admin');
+
+            if ($model->login()) {
+                if ($user->isAdmin === 1) {
+//                    $model->login();
+                    return $this->redirect('/admin');
+                } else {
+//                    $model->login();
+                    return $this->redirect('/user');
+                }
             } else {
-                $model->login();
-                return $this->redirect('/user');
+//                throw new \yii\web\NotFoundHttpException('Пользователь не найден');
+
+                Yii::$app->session->setFlash('error', "Пользователь не уку найден");
+                return $this->render('login', [
+                    'model' => $model,
+                ]);
             }
+
         }
         return $this->render('login', [
             'model' => $model,

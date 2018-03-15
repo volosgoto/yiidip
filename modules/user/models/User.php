@@ -2,6 +2,7 @@
 
 namespace app\modules\user\models;
 
+use app\models\Order;
 use Yii;
 use yii\web\IdentityInterface;
 
@@ -26,20 +27,33 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface {
         return 'user';
     }
 
+    public function getOrders(){
+        return $this->hasMany(Order::className(), ['order_id' => 'id']);
+    }
+
+    public function getUser() {
+        return $this->hasOne(User::className(), ['id']);
+    }
+
     /**
      * @inheritdoc
      */
-//    public function rules()
-//    {
-//        return [
-//            [['username', 'password', 'email'], 'required'],
-//            [['status'], 'integer'],
-//            [['created_at', 'updated_at'], 'safe'],
-//            [['username', 'password', 'auth_key', 'email'], 'string', 'max' => 255],
-//            [['isAdmin'], 'string', 'max' => 1],
-//            [['email'], 'unique'],
-//        ];
-//    }
+    public function rules()
+    {
+        return [
+            ['username', 'trim'],
+//            ['username', 'required'],
+//            ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Пользователь уже существует.'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['email', 'trim'],
+//            ['email', 'required'],
+            ['email', 'trim'],
+            ['email', 'string', 'max' => 255],
+//            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Email уже существует .'],
+            ['password', 'required'],
+            ['password', 'string', 'min' => 4],
+            ];
+    }
 
     /**
      * @inheritdoc
@@ -47,7 +61,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface {
     public function attributeLabels() {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => 'Имя',
             'password' => 'Password',
             'auth_key' => 'Auth Key',
             'email' => 'Email',
@@ -67,12 +81,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface {
      *
      */
 
-    public function rules() {
-        return [
-            [['isAdmin'], 'integer'],
-//            [['name', 'email', 'password', 'photo'], 'string', 'max' => 255],
-        ];
-    }
 
     public static function findIdentity($id) {
         return static::findOne($id);

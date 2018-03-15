@@ -104,16 +104,19 @@ ltAppAsset::register($this);
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="<?= \yii\helpers\Url::home()?>" class="active">В магазин</a></li>
-                                <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>
+<!--                                <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>-->
+<!--                                    <ul role="menu" class="sub-menu">-->
+<!--                                        <li><a href="--><?//=\yii\helpers\Url::to(['category/index']) ?><!--">Список категорий</a></li>-->
+<!--                                        <li><a href="--><?//=\yii\helpers\Url::to(['category/create']) ?><!--">Добавить категорию</a></li>-->
+<!--                                    </ul>-->
+<!--                                </li>-->
+                                <li class="dropdown"><a href="#">Личный кабинет<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="<?=\yii\helpers\Url::to(['category/index']) ?>">Список категорий</a></li>
-                                        <li><a href="<?=\yii\helpers\Url::to(['category/create']) ?>">Добавить категорию</a></li>
+                                        <li><a href="<?=\yii\helpers\Url::to(['order/index']) ?>">Список заказов</a></li>
+                                        <li><a href="<?=\yii\helpers\Url::to(['user/view']) ?>">Информация о пользователе</a></li>
+
                                     </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Товары<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="<?=\yii\helpers\Url::to(['product/index']) ?>">Список товаров</a></li>
-                                    </ul>
+
                                 </li>
                             </ul>
                         </div>

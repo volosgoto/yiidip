@@ -14,10 +14,10 @@ class DefaultController extends Controller
      * Renders the index view for the module
      * @return string
      */
-    public function actionIndex()
-    {
-        $user = new User();
-        $v = get_class_methods($user);
-        return $this->render('index', compact('user', 'v'));
-    }
+//    public function actionIndex()
+//    {
+//        $user = new User();
+//        $v = get_class_methods($user);
+//        return $this->render('user/index', compact('user', 'v'));
+//    }
 }

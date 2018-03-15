@@ -17,6 +17,7 @@ $config = [
         'user' => [
             'class' => 'app\modules\user\Module',
             'layout' => 'user',
+            'defaultRoute' => 'order/index',
 
         ],
         'yii2images' => [
