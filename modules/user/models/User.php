@@ -29,13 +29,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface {
     }
 
     public function getOrders(){
-        return $this->hasMany(Order::className(), ['user_id' => 'id']);
+        return $this->hasMany(Order::className(), ['id' => 'user_id']);
     }
-
-    public function getUser() {
-        return $this->hasOne(User::className(), ['id']);
-    }
-
 
     public function getCart(){
         $cart = new Cart();

@@ -59,16 +59,12 @@ class CartController extends AppController {
         $session->open();
         $this->setMeta('Корзина');
         $order = new Order();
-        //$user = Yii::$app->user->identity['username'];
 
-//        if (!Yii::$app->user->isGuest) {
-////            $user = Yii::$app->user->getId();
-//            $user = Yii::$app->user->identity['username']
-//        }
 
         if( $order->load(Yii::$app->request->post()) ){
             $order->qty = $session['cart.qty'];
             $order->sum = $session['cart.sum'];
+            $order->user_id = Yii::$app->user->getId();
             if($order->save()){
 
                 $this->saveOrderItems($session['cart'], $order->id);

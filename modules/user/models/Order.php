@@ -28,6 +28,10 @@ class Order extends \yii\db\ActiveRecord
         return 'order';
     }
 
+    public function getUser(){
+        return $this->hasOne(User::className(), ['order_id' => 'id']);
+    }
+
     /**
      * @inheritdoc
      */
@@ -61,4 +65,6 @@ class Order extends \yii\db\ActiveRecord
             'address' => 'Address',
         ];
     }
+
+
 }

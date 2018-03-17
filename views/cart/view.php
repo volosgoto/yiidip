@@ -26,7 +26,8 @@ use yii\widgets\ActiveForm;
             <?php if(!Yii::$app->user->isGuest): ?>
                 <div>
                     <h2>
-                    <?php echo  'Корзина пользователя: ' . Yii::$app->user->identity['username'] ?>
+                    <?php echo  'Корзина: ' . Yii::$app->user->identity['username'] ?>
+                        <?php echo Yii::$app->user->getId() ?>
                     </h2>
                 </div>
             <?php endif;?>
@@ -53,7 +54,7 @@ use yii\widgets\ActiveForm;
                         <td><?= $item['price']?></td>
                         <td><?= $item['price'] * $item['qty']?></td>
                         <td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
-                    </tr>
+                    </tr>пользователя
                 <?php endforeach?>
                 <tr>
                     <td colspan="5">Итого: </td>
