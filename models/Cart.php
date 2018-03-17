@@ -51,4 +51,11 @@ class Cart extends ActiveRecord {
         unset($_SESSION['cart'][$id]);
     }
 
+    public function getCart(){
+        if ($this->addToCart()) {
+            return $this->addToCart();
+        }
+        return false;
+    }
+
 }

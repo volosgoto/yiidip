@@ -23,7 +23,16 @@ use yii\widgets\ActiveForm;
 
     <?php if(!empty($session['cart'])): ?>
         <div class="table-responsive">
+            <?php if(!Yii::$app->user->isGuest): ?>
+                <div>
+                    <h2>
+                    <?php echo  'Корзина пользователя: ' . Yii::$app->user->identity['username'] ?>
+                    </h2>
+                </div>
+            <?php endif;?>
+
             <table class="table table-hover table-striped">
+
                 <thead>
                 <tr>
                     <th>Фото</th>
@@ -65,8 +74,20 @@ use yii\widgets\ActiveForm;
         <?= $form->field($order, 'email')?>
         <?= $form->field($order, 'phone')?>
         <?= $form->field($order, 'address')?>
-        <?= Html::submitButton('Заказать', ['class' => 'btn btn-success'])?>
+
+        <?php if(!Yii::$app->user->isGuest): ?>
+                <?= Html::submitButton('Заказать', ['class' => 'btn btn-primary', 'name' => 'quik_order'])?>
+        <?php endif;?>
+
+        <?php if(Yii::$app->user->isGuest): ?>
+            <?= Html::submitButton('Быстрый заказ', ['class' => 'btn btn-primary', 'name' => 'quik_order'])?>
+            <?= Html::a('Войти', ['/site/login'], ['class'=>'btn btn-success']) ?>
+            <?= Html::a('Зарегистрироваться', ['/site/signup'], ['class'=>'btn btn-danger']) ?>
+        <?php endif;?>
+
+
         <?php ActiveForm::end()?>
+
     <?php else: ?>
         <h3>Корзина пуста</h3>
     <?php endif;?>

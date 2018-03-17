@@ -2,6 +2,7 @@
 
 namespace app\modules\user\models;
 
+use app\models\Cart;
 use app\models\Order;
 use Yii;
 use yii\web\IdentityInterface;
@@ -28,11 +29,17 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface {
     }
 
     public function getOrders(){
-        return $this->hasMany(Order::className(), ['order_id' => 'id']);
+        return $this->hasMany(Order::className(), ['user_id' => 'id']);
     }
 
     public function getUser() {
         return $this->hasOne(User::className(), ['id']);
+    }
+
+
+    public function getCart(){
+        $cart = new Cart();
+       return $cart->getCart();
     }
 
     /**

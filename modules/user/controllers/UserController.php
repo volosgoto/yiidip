@@ -44,5 +44,37 @@ class UserController extends DefaultController {
         }
         throw new NotFoundHttpException('Пользователь не найден.');
     }
+
+
+    public function actionCart(){
+        $session = Yii::$app->session;
+        $session->open();
+        $this->setMeta('Корзина');
+        $order = new Order();
+        if( $order->load(Yii::$app->request->post()) ){
+            $order->qty = $session['cart.qty'];
+            $order->sum = $session['cart.sum'];
+            if($order->save()){
+
+                $this->saveOrderItems($session['cart'], $order->id);
+
+                Yii::$app->session->setFlash('success', 'Ваш заказ принят. Менеджер вскоре свяжется с Вами.');
+
+                Yii::$app->mailer->compose('order', ['session' => $session])
+                    ->setFrom(['username@mail.ru' => 'yiidip.loc'])
+                    ->setTo($order->email)
+                    ->setSubject('Заказ')
+                    ->send();
+
+                $session->remove('cart');
+                $session->remove('cart.qty');
+                $session->remove('cart.sum');
+                return $this->refresh();
+            }else{
+                Yii::$app->session->setFlash('error', 'Ошибка оформления заказа');
+            }
+        }
+        return $this->render('view', compact('session', 'order'));
+    }
 }
 
