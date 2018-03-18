@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('В магазин', ['/category/index'], ['class' => 'btn btn-success'] ) ?>
     </p>
 
     <?= DetailView::widget([
@@ -23,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
 //            'id',
             'username',
-            'password',
+//            'password',
 //            'auth_key',
             'email:email',
 //            'status',

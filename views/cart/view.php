@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
                 <div>
                     <h2>
                     <?php echo  'Корзина: ' . Yii::$app->user->identity['username'] ?>
-                        <?php echo Yii::$app->user->getId() ?>
+<!--                        --><?php //echo Yii::$app->user->getId() ?>
                     </h2>
                 </div>
             <?php endif;?>
