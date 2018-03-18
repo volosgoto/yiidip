@@ -66,7 +66,7 @@ class UserController extends DefaultController {
 
     public function actionUpdate($id) {
         $model = $this->findModel($id);
-        debug(Yii::$app->request->post());
+//        debug(Yii::$app->request->post());
         if (Yii::$app->request->post()){
             $model->load(Yii::$app->request->post());
             $pass = $_POST['User']['password'];
