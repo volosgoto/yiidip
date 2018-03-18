@@ -15,28 +15,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1> Профиль пользователя: <?= Html::encode($model->username) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-<!--        --><?//= Html::a('Delete', ['delete', 'id' => $model->id], [
-//            'class' => 'btn btn-danger',
-//            'data' => [
-//                'confirm' => 'Are you sure you want to delete this item?',
-//                'method' => 'post',
-//            ],
-//        ]) ?>
+        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+//            'id',
             'username',
             'password',
-            'auth_key',
+//            'auth_key',
             'email:email',
-            'status',
+//            'status',
             'created_at',
             'updated_at',
-            'isAdmin',
+//            'isAdmin',
         ],
     ]) ?>
 

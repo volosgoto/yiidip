@@ -5,6 +5,7 @@ namespace app\modules\user\controllers;
 use app\modules\user\models\User;
 use yii\data\ActiveDataProvider;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 class UserController extends DefaultController {
 
@@ -15,19 +16,6 @@ class UserController extends DefaultController {
 //        ]);
 //        return $this->render('index', compact('dataProvider'));
     }
-
-
-    public function actionUpdate($id) {
-        $model = $this->findModel($id);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', "Профиль пользователя обновлен");
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', compact('model'));
-        }
-        return $this->render('update', compact('model'));
-    }
-
 
     public function actionView() {
         $dataProvider = new ActiveDataProvider([
@@ -44,7 +32,6 @@ class UserController extends DefaultController {
         }
         throw new NotFoundHttpException('Пользователь не найден.');
     }
-
 
     public function actionCart(){
         $session = Yii::$app->session;
@@ -75,6 +62,22 @@ class UserController extends DefaultController {
             }
         }
         return $this->render('view', compact('session', 'order'));
+    }
+
+    public function actionUpdate($id) {
+        $model = $this->findModel($id);
+        debug(Yii::$app->request->post());
+        if (Yii::$app->request->post()){
+            $model->load(Yii::$app->request->post());
+            $pass = $_POST['User']['password'];
+            $model->setPassword($pass);
+            $model->save();
+            Yii::$app->session->setFlash('success', "Профиль пользователя обновлен");
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', compact('model'));
+        }
+        return $this->render('update', compact('model'));
     }
 }
 

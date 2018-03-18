@@ -52,7 +52,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface {
             ['email', 'trim'],
             ['email', 'string', 'max' => 255],
 //            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Email уже существует .'],
-            ['password', 'required'],
+//            ['password', 'required'],
             ['password', 'string', 'min' => 4],
             ];
     }
@@ -64,13 +64,13 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface {
         return [
             'id' => 'ID',
             'username' => 'Имя',
-            'password' => 'Password',
-            'auth_key' => 'Auth Key',
+            'password' => 'Пароль',
+            'auth_key' => 'Ключ авторизации',
             'email' => 'Email',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'isAdmin' => 'Is Admin',
+            'status' => 'Статус',
+            'created_at' => 'Зарегистрирован',
+            'updated_at' => 'Обновлен профиль',
+            'isAdmin' => 'Администратор',
         ];
     }
 

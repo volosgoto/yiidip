@@ -69,25 +69,24 @@ ltAppAsset::register($this);
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="<?php echo \yii\helpers\Url::home()?>"><?php echo Html::img('@web/images/home/logo.png', ['alt' => 'E-SHOPPER'])?></a>
+                        <a href="<?php echo \yii\helpers\Url::home()?>"><?php echo Html::img('@web/images/home/logo.png', ['alt' => 'shop'])?></a>
                     </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <?php if (!Yii::$app->user->isGuest):?>
-                                <li>
-                                    <a href="<?php echo  \yii\helpers\Url::to('/site/logout');?>"><i class="fa fa-user"></i>
-                                    <?php echo Yii::$app->user->identity['username'];?>(Выход)
-                                    </a>
-                                </li>
+                                <li><a href="<?php echo  \yii\helpers\Url::to('/site/logout');?>"><i class="fa fa-user"></i><?php echo Yii::$app->user->identity['username'];?>(Выход)</a></li>
+                                <li><a href="<?php echo  \yii\helpers\Url::to('/user');?>"><i class="fa fa-user"></i><?php echo Yii::$app->user->identity['username'];?>(Личный кабинет)</a></li>
+                                    <?php else: ?>
+                                <li><a href="<?php echo \yii\helpers\Url::to('/admin' ) ?>"><i class="fa fa-lock"></i> Войти</a></li>
+                                <li><a href="<?php echo \yii\helpers\Url::to('/site/signup/' ) ?>"><i class="fa fa-lock"></i> Регистрация</a></li>
                             <?php endif; ?>
 
 <!--                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>-->
 <!--                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>-->
                             <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
-                            <li><a href="<?php echo \yii\helpers\Url::to('/admin' ) ?>"><i class="fa fa-lock"></i> Войти</a></li>
-                            <li><a href="<?php echo \yii\helpers\Url::to('/site/signup/' ) ?>"><i class="fa fa-lock"></i> Регистрация</a></li>
+
                         </ul>
 
                         <?php
