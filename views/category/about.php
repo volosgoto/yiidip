@@ -3,17 +3,26 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 ?>
+
+
 <section>
     <div class="container">
-        <p class="text-success">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab ipsum libero obcaecati sed? Aliquid dicta dolorum eaque explicabo laboriosam necessitatibus rem saepe similique sint temporibus! Mollitia quaerat tempore voluptatibus.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto beatae blanditiis, dicta esse labore nulla quae quasi, quibusdam quos repellat sequi sunt suscipit tempora tempore ullam unde voluptates voluptatum.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at beatae eos iste obcaecati quibusdam soluta ut, voluptas? Adipisci alias commodi dolores explicabo fuga illo omnis praesentium quisquam vitae voluptatibus.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet asperiores atque cumque dignissimos, eaque est excepturi explicabo facere, labore maiores officia omnis placeat quibusdam quidem rem repellat sapiente tempora!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam consequatur eaque eius porro, provident tempore. Aperiam asperiores autem commodi dolorum facere id ipsum minima quibusdam, saepe suscipit tenetur vel.
-        </p>
+        <div class="row">
+                <div class="left-sidebar">
+                    <h2>О нас</h2>
+                    <ul class="catalog category-products">
+                        <li><p class="shopper-info">    A ab ipsum libero obcaecati sed? Aliquid dicta dolorum eaque explicabo laboriosam necessitatibus rem saepe similique sint temporibus! Mollitia quaerat tempore voluptatibus.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto beatae blanditiis, dicta esse labore nulla quae quasi, quibusdam quos repellat sequi sunt suscipit tempora tempore ullam unde voluptates voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at beatae eos iste obcaecati quibusdam soluta ut, voluptas? Adipisci alias commodi dolores explicabo fuga illo omnis praesentium quisquam vitae voluptatibus.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet asperiores atque cumque dignissimos, eaque est excepturi explicabo facere, labore maiores officia omnis placeat quibusdam quidem rem repellat sapiente tempora!
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam consequatur eaque eius porro, provident tempore. Aperiam asperiores autem commodi dolorum facere id ipsum minima quibusdam, saepe suscipit tenetur vel.
+                            </p></li>
+                    </ul>
+            </div>
+        </div>
     </div>
 </section>
+
 
 <section>
     <div class="container">

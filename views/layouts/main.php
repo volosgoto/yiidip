@@ -151,7 +151,7 @@ ltAppAsset::register($this);
                                     <li><a href="to blog">Перейти в блог</a></li>
                                 </ul>
                             </li>
-                            <li><a href="contact-us.html">Контакты</a></li>
+                            <li><a href="<?= \yii\helpers\Url::to(['category/contacts'])?>">Контакты</a></li>
                         </ul>
                     </div>
                 </div>

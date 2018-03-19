@@ -53,5 +53,9 @@ class CategoryController extends AppController{
     public function actionPolicy(){
         return $this->render('policy');
     }
+    public function actionContacts(){
+        return $this->render('contacts');
+
+    }
 
 }
