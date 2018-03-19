@@ -69,8 +69,12 @@ class UserController extends DefaultController {
 //        debug(Yii::$app->request->post());
         if (Yii::$app->request->post()){
             $model->load(Yii::$app->request->post());
-            $pass = $_POST['User']['password'];
-            $model->setPassword($pass);
+
+//            $pass = $_POST['User']['password'];
+//            $model->password
+
+//            $model->setPassword($pass);
+            $model->setPassword($model->password);
             $model->save();
             Yii::$app->session->setFlash('success', "Профиль пользователя обновлен");
             return $this->redirect(['view', 'id' => $model->id]);
